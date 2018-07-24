@@ -3,7 +3,7 @@
  * @param {Array} arr 
  * @param {Number} sum 
  */
-function checkSum(arr, sum) {
+function checkSum(arr=[], sum=0) {
     for(var i=0;i<arr.length;i++) {
         var diff = sum - arr[i];
         var diffIndex = arr.indexOf(diff);
@@ -11,6 +11,7 @@ function checkSum(arr, sum) {
             return [i, diffIndex];
         }
     }
+    return false;
 }
 checkSum([-1,2,3,4,5],3); //[0,3]
 checkSum([1,2,3,4,5],3); //[0,1]
