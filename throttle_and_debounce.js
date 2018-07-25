@@ -75,6 +75,17 @@ function throttle(fn, threshold = 250) {
 
 }
 
+let throttle = (fn, delay = 50) => {
+    let starttime = 0;
+    return function(...args) {
+        let curTime = new Date();
+        if(curTime - starttime >= delay) {
+            fn.apply(this, args);
+            starttime = curTime;
+        }
+    }
+}
+
 
 //使用
 function log( event ) {
